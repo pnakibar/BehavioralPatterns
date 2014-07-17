@@ -17,37 +17,17 @@ import sensor.SensorInterno;
 public class Arcondicionado {
 
 	private int temperaturaDesejada = 25;
-
-	private ArrayList<SensorInterno> sensoresInternos = new ArrayList<>();
-	private ArrayList<SensorExterno> sensoresExternos = new ArrayList<>();
+	private SensoresManager sensoresManager = new SensoresManager(this);
 
 	public void update() {
-		int temperaturaInterna = calcularTemperaturaExterna() + calcularTemperaturaInterna();
-		System.out.println(temperaturaInterna);
-
-		if (temperaturaInterna > temperaturaDesejada) {
+		if (sensoresManager.getTemperaturaSala() > temperaturaDesejada) {
 			aumentarIntensidade();
 		} else {
 			diminuirrIntensidade();
 		}
 	}
 
-	private int calcularTemperaturaExterna() {
-		int temperaturaExterna = 0;
-		for (SensorExterno sensorExterno : sensoresExternos) {
-			temperaturaExterna += sensorExterno.getTemp();
-		}
-		return temperaturaExterna / sensoresExternos.size();
-	}
-
-	private int calcularTemperaturaInterna() {
-		int quantidadePessoas = 0;
-		for (SensorInterno sensorInterno : sensoresInternos) {
-			quantidadePessoas += sensorInterno.getPessoas();
-		}
-		return quantidadePessoas / sensoresInternos.size();
-	}
-
+	
 	public void aumentarIntensidade() {
 		System.out.println("Aumentar intensidade.");
 	}
@@ -57,12 +37,10 @@ public class Arcondicionado {
 	}
 
 	public void addSensorInterno(SensorInterno si) {
-		si.setAc(this);
-		sensoresInternos.add(si);
+		sensoresManager.addSensorInterno(si);
 	}
 
 	public void addSensorExterno(SensorExterno se) {
-		se.setAc(this);
-		sensoresExternos.add(se);
+		sensoresManager.addSensorExterno(se);
 	}
 }

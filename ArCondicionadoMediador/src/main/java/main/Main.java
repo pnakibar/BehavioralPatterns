@@ -7,6 +7,7 @@
 package main;
 
 import arcondicionado.Arcondicionado;
+import arcondicionado.SensoresManager;
 import sensor.SensorExterno;
 import sensor.SensorInterno;
 
@@ -21,14 +22,15 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		Arcondicionado ac = new Arcondicionado();
+		SensoresManager sm = new SensoresManager(ac);
 		
-		SensorExterno se1 = new SensorExterno();
-		SensorExterno se2 = new SensorExterno();
-		SensorExterno se3 = new SensorExterno();
+		SensorExterno se1 = new SensorExterno(sm);
+		SensorExterno se2 = new SensorExterno(sm);
+		SensorExterno se3 = new SensorExterno(sm);
 		
-		SensorInterno si1 = new SensorInterno();
-		SensorInterno si2 = new SensorInterno();
-		SensorInterno si3 = new SensorInterno();
+		SensorInterno si1 = new SensorInterno(sm);
+		SensorInterno si2 = new SensorInterno(sm);
+		SensorInterno si3 = new SensorInterno(sm);
 		
 		ac.addSensorExterno(se1);
 		ac.addSensorExterno(se2);

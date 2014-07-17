@@ -7,14 +7,19 @@
 package sensor;
 
 import arcondicionado.Arcondicionado;
+import arcondicionado.SensoresManager;
 
 /**
  *
  * @author cthulhu
  */
-public class SensorInterno {
+public class SensorInterno extends SensorAbs{
 	private int pessoas=0;
-	private Arcondicionado ac;
+
+	public SensorInterno(SensoresManager sm) {
+		super(sm);
+	}
+	
 	
 	public int getPessoas(){
 		return pessoas;
@@ -25,20 +30,8 @@ public class SensorInterno {
 	 */
 	public void setPessoas(int pessoas) {
 		this.pessoas = pessoas;
-		ac.update();
+		update();
 	}
 
-	/**
-	 * @return the ac
-	 */
-	public Arcondicionado getAc() {
-		return ac;
-	}
-
-	/**
-	 * @param ac the ac to set
-	 */
-	public void setAc(Arcondicionado ac) {
-		this.ac = ac;
-	}
+	
 }
