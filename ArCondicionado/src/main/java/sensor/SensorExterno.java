@@ -12,29 +12,21 @@ import arcondicionado.Arcondicionado;
  *
  * @author cthulhu
  */
-public class SensorExterno {
+public class SensorExterno extends SensorAbs{
 	private int temp=0;
-	private Arcondicionado ac;
+
+	public SensorExterno(Arcondicionado ac) {
+		super(ac);
+	}
+	
 	
 	public int getTemp(){
 		return temp;
 	}
 	public void setTemp(int temp){
 		this.temp = temp;
-		ac.update();
+		update();
 	}
 
-	/**
-	 * @return the ac
-	 */
-	public Arcondicionado getAc() {
-		return ac;
-	}
-
-	/**
-	 * @param ac the ac to set
-	 */
-	public void setAc(Arcondicionado ac) {
-		this.ac = ac;
-	}
+	
 }

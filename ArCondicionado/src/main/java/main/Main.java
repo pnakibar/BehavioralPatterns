@@ -22,13 +22,13 @@ public class Main {
 	public static void main(String[] args) {
 		Arcondicionado ac = new Arcondicionado();
 		
-		SensorExterno se1 = new SensorExterno();
-		SensorExterno se2 = new SensorExterno();
-		SensorExterno se3 = new SensorExterno();
+		SensorExterno se1 = new SensorExterno(ac);
+		SensorExterno se2 = new SensorExterno(ac);
+		SensorExterno se3 = new SensorExterno(ac);
 		
-		SensorInterno si1 = new SensorInterno();
-		SensorInterno si2 = new SensorInterno();
-		SensorInterno si3 = new SensorInterno();
+		SensorInterno si1 = new SensorInterno(ac);
+		SensorInterno si2 = new SensorInterno(ac);
+		SensorInterno si3 = new SensorInterno(ac);
 		
 		ac.addSensorExterno(se1);
 		ac.addSensorExterno(se2);

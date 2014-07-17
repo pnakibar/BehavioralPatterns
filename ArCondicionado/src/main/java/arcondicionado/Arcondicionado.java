@@ -23,7 +23,6 @@ public class Arcondicionado {
 
 	public void update() {
 		int temperaturaInterna = calcularTemperaturaExterna() + calcularTemperaturaInterna();
-		System.out.println(temperaturaInterna);
 
 		if (temperaturaInterna > temperaturaDesejada) {
 			aumentarIntensidade();
@@ -57,12 +56,10 @@ public class Arcondicionado {
 	}
 
 	public void addSensorInterno(SensorInterno si) {
-		si.setAc(this);
 		sensoresInternos.add(si);
 	}
 
 	public void addSensorExterno(SensorExterno se) {
-		se.setAc(this);
 		sensoresExternos.add(se);
 	}
 }

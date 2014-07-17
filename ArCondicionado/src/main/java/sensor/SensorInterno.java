@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package sensor;
 
 import arcondicionado.Arcondicionado;
@@ -12,11 +11,15 @@ import arcondicionado.Arcondicionado;
  *
  * @author cthulhu
  */
-public class SensorInterno {
-	private int pessoas=0;
-	private Arcondicionado ac;
-	
-	public int getPessoas(){
+public class SensorInterno extends SensorAbs {
+
+	private int pessoas = 0;
+
+	public SensorInterno(Arcondicionado ac) {
+		super(ac);
+	}
+
+	public int getPessoas() {
 		return pessoas;
 	}
 
@@ -25,20 +28,7 @@ public class SensorInterno {
 	 */
 	public void setPessoas(int pessoas) {
 		this.pessoas = pessoas;
-		ac.update();
+		update();
 	}
 
-	/**
-	 * @return the ac
-	 */
-	public Arcondicionado getAc() {
-		return ac;
-	}
-
-	/**
-	 * @param ac the ac to set
-	 */
-	public void setAc(Arcondicionado ac) {
-		this.ac = ac;
-	}
 }
